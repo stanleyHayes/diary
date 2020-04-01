@@ -1,26 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter, Switch, Route} from "react-router-dom";
+import IndexPage from "./pages/diary/IndexPage";
+import CreateDiaryPage from "./pages/diary/CreateDiaryPage";
+import ProfilePage from "./pages/account/ProfilePage";
+import ChangePasswordPage from "./pages/account/ChangePasswordPage";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <Switch>
+                <Route path="/" exact={true}>
+                    <IndexPage/>
+                </Route>
+
+                <Route path="/new">
+                    <CreateDiaryPage/>
+                </Route>
+
+                <Route path="/profile">
+                    <ProfilePage/>
+                </Route>
+
+                <Route path="/change-password">
+                    <ChangePasswordPage/>
+                </Route>
+
+            </Switch>
+        </BrowserRouter>
+    );
 }
 
 export default App;
